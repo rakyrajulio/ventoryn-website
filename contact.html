@@ -60,14 +60,13 @@
   </footer>
 
   <script>
-    const themeToggle = document.getElementById('themeToggle');
-
+    
+     const themeToggle = document.getElementById('themeToggle');
     if(localStorage.getItem('theme') === 'dark'){
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-
     themeToggle.addEventListener('click', () => {
       document.documentElement.classList.toggle('dark');
       if(document.documentElement.classList.contains('dark')){
@@ -76,7 +75,24 @@
         localStorage.setItem('theme', 'light');
       }
     });
-  </script>
 
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    const newsContainer=document.getElementById('newsContainer');
+    newsData.forEach(item=>{
+      const card=document.createElement('div');
+      card.className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-xl transition";
+      card.innerHTML=`
+        <h3 class="font-bold text-2xl mb-2">${item.title}</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">${item.date}</p>
+        <p>${item.desc}</p>
+      `;
+      newsContainer.appendChild(card);
+    });
+  </script>
 </body>
 </html>
