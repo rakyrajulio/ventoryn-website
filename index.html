@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Ventroyn Network</title>
+  <link rel="icon" href="img/logo.png" type="image/png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class'}</script>
+</head>
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
+
+  <header>
+    <nav class="flex items-center p-4 bg-white dark:bg-gray-800 shadow-md fixed w-full z-50">
+      
+      <div class="flex items-center space-x-2">
+        <img src="img/logo.png" alt="Ventroyn Network" class="h-20 w-20">
+        <span class="text-xl font-bold text-black dark:text-white">Ventroyn Network</span>
+      </div>
+
+      <ul class="flex space-x-4 ml-auto">
+        <li><a href="#home" class="text-black dark:text-white hover:text-blue-500">Home</a></li>
+        <li><a href="about.html" class="text-black dark:text-white hover:text-blue-500">About</a></li>
+        <li><a href="news.html" class="text-black dark:text-white hover:text-blue-500">News</a></li>
+        <li><a href="gallery.html" class="text-black dark:text-white hover:text-blue-500">Gallery</a></li>
+        <li><a href="promo.html" class="text-black dark:text-white hover:text-blue-500">Promo</a></li>
+        <li><a href="contact.html" class="text-black dark:text-white hover:text-blue-500">Contact</a></li>
+      </ul>
+
+      <button id="themeToggle" class="ml-4 px-2 py-1 border rounded">🌙</button>
+    </nav>
+  </header>
+
+  <section id="home" class="h-screen flex flex-col justify-center items-center text-center px-4 pt-24 bg-gradient-to-b from-purple-500 to-blue-500 text-white">
+    <img src="img/logo.png" alt="Ventroyn Network" class="h-48 w-48 mb-4">
+    <h1 class="text-5xl font-bold mb-4">Selamat Datang di Ventroyn Network</h1>
+    <p class="text-lg mb-6 max-w-xl">Bergabunglah untuk update terbaru, event seru, dan komunitas hangat!</p>
+    <a href="https://discord.gg/7Pw7f3KsnU" target="_blank" class="bg-white text-purple-700 px-6 py-3 rounded-lg hover:bg-gray-100 transition">Join Discord</a>
+  </section>
+
+<section id="about" class="py-20 px-4 bg-gray-100 dark:bg-gray-800 text-center">
+  <h2 class="text-4xl font-bold mb-6">About Ventroyn Discord</h2>
+  <p class="max-w-3xl mx-auto text-lg mb-4">
+    Ventroyn Network memiliki <strong>server Discord</strong> aktif untuk komunitas online. 
+    Di sini kamu bisa ngobrol, berdiskusi, dan berinteraksi dengan anggota lain dalam suasana yang ramah dan menyenangkan.
+  </p>
+  <p class="max-w-3xl mx-auto text-lg">
+    Bergabunglah dengan server Discord kami untuk tetap update dengan berita terbaru dan berinteraksi dengan komunitas.
+  </p>
+</section>
+
+  <section id="news" class="py-20 px-4 bg-white dark:bg-gray-900 text-center">
+    <h2 class="text-4xl font-bold mb-8">News Terbaru</h2>
+    
+    <div class="max-w-3xl mx-auto space-y-6">
+      
+      <div class="p-6 border rounded-lg shadow-md bg-gray-50 dark:bg-gray-800 text-left">
+        <h3 class="text-2xl font-semibold mb-2">Server Survival Ventoryn Network</h3>
+        <span class="text-sm text-gray-500 dark:text-gray-400 mb-2 block">01 Oktober 2025</span>
+        <p>server bakalan di buka tgl 5 Oktober 2025</p>
+      </div>
+
+      
+      <div class="p-6 border rounded-lg shadow-md bg-gray-50 dark:bg-gray-800 text-left">
+        <h3 class="text-2xl font-semibold mb-2">server mod pokemon adventure</h3>
+        <span class="text-sm text-gray-500 dark:text-gray-400 mb-2 block">01 Oktober 2025</span>
+        <p>Coming soon</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 py-6 text-center mt-10">
+    <p>© 2025 Ventroyn Network</p>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+
+    if(localStorage.getItem('theme') === 'dark'){
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      if(document.documentElement.classList.contains('dark')){
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
+</body>
+</html>

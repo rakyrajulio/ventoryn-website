@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Ventroyn Network</title>
+  <link rel="icon" href="img/logo.png" type="image/png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class'}</script>
+</head>
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
+
+  <header>
+    <nav class="flex items-center p-4 bg-white dark:bg-gray-800 shadow-md fixed w-full z-50">
+      
+      <div class="flex items-center space-x-2">
+        <img src="img/logo.png" alt="Ventroyn Network" class="h-10 w-10">
+        <span class="text-xl font-bold text-black dark:text-white">Ventroyn Network</span>
+      </div>
+
+      <ul class="flex space-x-4 ml-auto">
+        <li><a href="index.html" class="text-black dark:text-white hover:text-blue-500">Home</a></li>
+        <li><a href="about.html" class="text-black dark:text-white hover:text-blue-500">About</a></li>
+        <li><a href="gallery.html" class="text-black dark:text-white hover:text-blue-500">Gallery</a></li>
+        <li><a href="news.html" class="text-black dark:text-white hover:text-blue-500">News</a></li>
+        <li><a href="promo.html" class="text-black dark:text-white hover:text-blue-500">Promo</a></li>
+        <li><a href="contact.html" class="text-black dark:text-white hover:text-blue-500">Contact</a></li>
+      </ul>
+
+      <button id="themeToggle" class="ml-4 px-2 py-1 border rounded">🌙</button>
+    </nav>
+  </header>
+
+<section class="py-24 px-4 bg-gray-100 dark:bg-gray-800 min-h-screen pt-32">
+  <h2 class="text-4xl font-bold text-center mb-8">Ventroyn Network Discord</h2>
+  <p class="max-w-3xl mx-auto text-center text-lg mb-4">
+    Ventroyn Network adalah komunitas Discord aktif yang dibuat untuk semua pecinta teknologi, game, dan dunia digital. 
+    Di sini, kamu bisa berinteraksi dengan anggota lain, bertukar informasi, berdiskusi topik menarik, dan menemukan teman baru yang memiliki minat yang sama.
+  </p>
+  <p class="max-w-3xl mx-auto text-center text-lg mb-4">
+    Server Discord kami dirancang untuk menciptakan suasana yang ramah dan menyenangkan. 
+    Anggota dapat saling membantu, berbagi tips, atau sekadar ngobrol santai tentang berbagai hal seru. 
+    Tidak perlu khawatir soal pengalaman sebelumnya, semua orang diterima!
+  </p>
+  <p class="max-w-3xl mx-auto text-center text-lg">
+    Bergabunglah sekarang untuk tetap update dengan berita terbaru, informasi menarik, dan kesempatan untuk bertemu dengan komunitas yang aktif dan Tenang.
+  </p>
+  <div class="text-center mt-6">
+    <a href="https://discord.gg/7Pw7f3KsnU" target="_blank" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+      Join Discord
+    </a>
+  </div>
+</section>
+
+  <footer class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 py-6 text-center mt-10">
+    <p>© 2025 Ventroyn Network</p>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+
+    if(localStorage.getItem('theme') === 'dark'){
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      if(document.documentElement.classList.contains('dark')){
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
+</body>
+</html>
