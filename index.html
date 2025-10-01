@@ -14,11 +14,11 @@
     <nav class="flex items-center p-4 bg-white dark:bg-gray-800 shadow-md fixed w-full z-50">
       
       <div class="flex items-center space-x-2">
-        <img src="img/logo.png" alt="Ventroyn Network" class="h-20 w-20">
-        <span class="text-xl font-bold text-black dark:text-white">Ventroyn Network</span>
+        <img src="img/logo.png" alt="Ventroyn Network" class="h-12 w-12 md:h-16 md:w-16">
+        <span class="text-lg md:text-xl font-bold text-black dark:text-white">Ventroyn Network</span>
       </div>
 
-      <ul class="flex space-x-4 ml-auto">
+      <ul class="hidden md:flex space-x-4 ml-auto">
         <li><a href="#home" class="text-black dark:text-white hover:text-blue-500">Home</a></li>
         <li><a href="about.html" class="text-black dark:text-white hover:text-blue-500">About</a></li>
         <li><a href="news.html" class="text-black dark:text-white hover:text-blue-500">News</a></li>
@@ -27,8 +27,20 @@
         <li><a href="contact.html" class="text-black dark:text-white hover:text-blue-500">Contact</a></li>
       </ul>
 
-      <button id="themeToggle" class="ml-4 px-2 py-1 border rounded">🌙</button>
+      <button id="themeToggle" class="hidden md:block ml-4 px-2 py-1 border rounded">🌙</button>
+
+      <button id="menuBtn" class="ml-auto md:hidden px-2 py-1 border rounded">☰</button>
     </nav>
+
+    <div id="mobileMenu" class="hidden md:hidden flex-col space-y-2 bg-white dark:bg-gray-800 px-4 py-3 shadow-md fixed top-20 right-4 left-4 rounded-lg z-40">
+      <a href="#home" class="block text-black dark:text-white hover:text-blue-500">Home</a>
+      <a href="about.html" class="block text-black dark:text-white hover:text-blue-500">About</a>
+      <a href="news.html" class="block text-black dark:text-white hover:text-blue-500">News</a>
+      <a href="gallery.html" class="block text-black dark:text-white hover:text-blue-500">Gallery</a>
+      <a href="promo.html" class="block text-black dark:text-white hover:text-blue-500">Promo</a>
+      <a href="contact.html" class="block text-black dark:text-white hover:text-blue-500">Contact</a>
+      <button id="themeToggleMobile" class="px-2 py-1 border rounded">🌙</button>
+    </div>
   </header>
 
   <section id="home" class="h-screen flex flex-col justify-center items-center text-center px-4 pt-24 bg-gradient-to-b from-purple-500 to-blue-500 text-white">
@@ -38,31 +50,27 @@
     <a href="https://discord.gg/7Pw7f3KsnU" target="_blank" class="bg-white text-purple-700 px-6 py-3 rounded-lg hover:bg-gray-100 transition">Join Discord</a>
   </section>
 
-<section id="about" class="py-20 px-4 bg-gray-100 dark:bg-gray-800 text-center">
-  <h2 class="text-4xl font-bold mb-6">About Ventroyn Discord</h2>
-  <p class="max-w-3xl mx-auto text-lg mb-4">
-    Ventroyn Network memiliki <strong>server Discord</strong> aktif untuk komunitas online. 
-    Di sini kamu bisa ngobrol, berdiskusi, dan berinteraksi dengan anggota lain dalam suasana yang ramah dan menyenangkan.
-  </p>
-  <p class="max-w-3xl mx-auto text-lg">
-    Bergabunglah dengan server Discord kami untuk tetap update dengan berita terbaru dan berinteraksi dengan komunitas.
-  </p>
-</section>
+  <section id="about" class="py-20 px-4 bg-gray-100 dark:bg-gray-800 text-center">
+    <h2 class="text-4xl font-bold mb-6">About Ventroyn Discord</h2>
+    <p class="max-w-3xl mx-auto text-lg mb-4">
+      Ventroyn Network memiliki <strong>server Discord</strong> aktif untuk komunitas online. 
+      Di sini kamu bisa ngobrol, berdiskusi, dan berinteraksi dengan anggota lain dalam suasana yang ramah dan menyenangkan.
+    </p>
+    <p class="max-w-3xl mx-auto text-lg">
+      Bergabunglah dengan server Discord kami untuk tetap update dengan berita terbaru dan berinteraksi dengan komunitas.
+    </p>
+  </section>
 
   <section id="news" class="py-20 px-4 bg-white dark:bg-gray-900 text-center">
     <h2 class="text-4xl font-bold mb-8">News Terbaru</h2>
-    
     <div class="max-w-3xl mx-auto space-y-6">
-      
       <div class="p-6 border rounded-lg shadow-md bg-gray-50 dark:bg-gray-800 text-left">
         <h3 class="text-2xl font-semibold mb-2">Server Survival Ventoryn Network</h3>
         <span class="text-sm text-gray-500 dark:text-gray-400 mb-2 block">01 Oktober 2025</span>
-        <p>server bakalan di buka tgl 5 Oktober 2025</p>
+        <p>Server bakalan dibuka tanggal 5 Oktober 2025</p>
       </div>
-
-      
       <div class="p-6 border rounded-lg shadow-md bg-gray-50 dark:bg-gray-800 text-left">
-        <h3 class="text-2xl font-semibold mb-2">server mod pokemon adventure</h3>
+        <h3 class="text-2xl font-semibold mb-2">Server Mod Pokémon Adventure</h3>
         <span class="text-sm text-gray-500 dark:text-gray-400 mb-2 block">01 Oktober 2025</span>
         <p>Coming soon</p>
       </div>
@@ -74,15 +82,31 @@
   </footer>
 
   <script>
-    const themeToggle = document.getElementById('themeToggle');
-
+    
     if(localStorage.getItem('theme') === 'dark'){
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
 
+    const themeToggle = document.getElementById('themeToggle');
     themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      if(document.documentElement.classList.contains('dark')){
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    themeToggleMobile.addEventListener('click', () => {
       document.documentElement.classList.toggle('dark');
       if(document.documentElement.classList.contains('dark')){
         localStorage.setItem('theme', 'dark');
