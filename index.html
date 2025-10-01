@@ -83,13 +83,12 @@
 
   <script>
     
+    const themeToggle = document.getElementById('themeToggle');
     if(localStorage.getItem('theme') === 'dark'){
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-
-    const themeToggle = document.getElementById('themeToggle');
     themeToggle.addEventListener('click', () => {
       document.documentElement.classList.toggle('dark');
       if(document.documentElement.classList.contains('dark')){
@@ -105,14 +104,20 @@
       mobileMenu.classList.toggle('hidden');
     });
 
-    const themeToggleMobile = document.getElementById('themeToggleMobile');
-    themeToggleMobile.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-      if(document.documentElement.classList.contains('dark')){
-        localStorage.setItem('theme', 'dark');
-      } else {
-        localStorage.setItem('theme', 'light');
-      }
+    const galleryData=[
+      {"img": "img/img1.png", "desc": "Server Minecraft"},
+      {"img": "img/csn2.png", "desc": "Coming Soon"},
+      {"img": "img/csn.png", "desc": "Coming Soon"}
+    ];
+
+    const galleryContainer=document.getElementById('galleryContainer');
+    galleryData.forEach(item=>{
+      const card=document.createElement('div');
+      card.className="bg-gray-50 dark:bg-gray-800 overflow-hidden rounded-lg shadow-md hover:shadow-xl transition";
+      card.innerHTML=`
+        <img src="${item.img}" alt="${item.desc}" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+        <p class="p-2 text-center font-medium">${item.desc}</p>`;
+      galleryContainer.appendChild(card);
     });
   </script>
 </body>
