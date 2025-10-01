@@ -10,26 +10,38 @@
 </head>
 <body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
 
-  <header>
-    <nav class="flex items-center p-4 bg-white dark:bg-gray-800 shadow-md fixed w-full z-50">
+ <header>
+    <nav class="flex items-center justify-between p-4 bg-white dark:bg-gray-800 shadow-md fixed w-full z-50">
       <div class="flex items-center space-x-2">
-        <img src="img/logo.png" alt="Ventroyn Network" class="h-16 w-16">
+        <img src="img/logo.png" alt="Ventroyn Network" class="h-10 w-10">
         <span class="text-xl font-bold text-black dark:text-white">Ventroyn Network</span>
       </div>
 
-      <ul class="flex space-x-4 ml-auto">
-        <li><a href="index.html" class="text-black dark:text-white hover:text-blue-500">Home</a></li>
-        <li><a href="about.html" class="text-black dark:text-white hover:text-blue-500">About</a></li>
-        <li><a href="gallery.html" class="text-black dark:text-white hover:text-blue-500">Gallery</a></li>
-        <li><a href="news.html" class="text-black dark:text-white hover:text-blue-500">News</a></li>
-        <li><a href="promo.html" class="text-black dark:text-white hover:text-blue-500">Promo</a></li>
-        <li><a href="contact.html" class="text-black dark:text-white hover:text-blue-500">Contact</a></li>
+      <ul class="hidden md:flex space-x-4 ml-auto">
+        <li><a href="index.html" class="hover:text-blue-500">Home</a></li>
+        <li><a href="about.html" class="hover:text-blue-500">About</a></li>
+        <li><a href="gallery.html" class="hover:text-blue-500">Gallery</a></li>
+        <li><a href="news.html" class="hover:text-blue-500">News</a></li>
+        <li><a href="promo.html" class="hover:text-blue-500">Promo</a></li>
+        <li><a href="contact.html" class="hover:text-blue-500">Contact</a></li>
       </ul>
 
-      <button id="themeToggle" class="ml-4 px-2 py-1 border rounded">🌙</button>
+      <div class="flex items-center space-x-2">
+        <button id="themeToggle" class="px-2 py-1 border rounded">🌙</button>
+        <button id="menuBtn" class="md:hidden px-2 py-1 border rounded">☰</button>
+      </div>
     </nav>
-  </header>
 
+    <div id="mobileMenu" class="hidden md:hidden flex-col space-y-2 bg-white dark:bg-gray-800 shadow-md p-4 fixed top-16 right-4 rounded-lg z-40">
+      <a href="index.html" class="hover:text-blue-500">Home</a>
+      <a href="about.html" class="hover:text-blue-500">About</a>
+      <a href="gallery.html" class="hover:text-blue-500">Gallery</a>
+      <a href="news.html" class="hover:text-blue-500">News</a>
+      <a href="promo.html" class="hover:text-blue-500">Promo</a>
+      <a href="contact.html" class="hover:text-blue-500">Contact</a>
+    </div>
+  </header>
+  
   <section class="py-24 px-4 min-h-screen pt-28 bg-gray-100 dark:bg-gray-800">
     <h2 class="text-4xl font-bold text-center mb-8">Contact</h2>
     <p class="text-center max-w-3xl mx-auto text-lg mb-6">
