@@ -14,11 +14,11 @@
     <nav class="flex items-center p-4 bg-white dark:bg-gray-800 shadow-md fixed w-full z-50">
       
       <div class="flex items-center space-x-2">
-        <img src="img/logo.png" alt="Ventroyn Network" class="h-10 w-10">
-        <span class="text-xl font-bold text-black dark:text-white">Ventroyn Network</span>
+        <img src="img/logo.png" alt="Ventroyn Network" class="h-12 w-12 md:h-14 md:w-14">
+        <span class="text-lg md:text-xl font-bold text-black dark:text-white">Ventroyn Network</span>
       </div>
 
-      <ul class="flex space-x-4 ml-auto">
+      <ul class="hidden md:flex space-x-4 ml-auto">
         <li><a href="index.html" class="text-black dark:text-white hover:text-blue-500">Home</a></li>
         <li><a href="about.html" class="text-black dark:text-white hover:text-blue-500">About</a></li>
         <li><a href="gallery.html" class="text-black dark:text-white hover:text-blue-500">Gallery</a></li>
@@ -27,45 +27,73 @@
         <li><a href="contact.html" class="text-black dark:text-white hover:text-blue-500">Contact</a></li>
       </ul>
 
-      <button id="themeToggle" class="ml-4 px-2 py-1 border rounded">🌙</button>
+      <button id="themeToggle" class="hidden md:block ml-4 px-2 py-1 border rounded">🌙</button>
+
+      <button id="menuBtn" class="ml-auto md:hidden px-2 py-1 border rounded">☰</button>
     </nav>
+
+    <div id="mobileMenu" class="hidden md:hidden flex-col space-y-2 bg-white dark:bg-gray-800 px-4 py-3 shadow-md fixed top-20 right-4 left-4 rounded-lg z-40">
+      <a href="index.html" class="block text-black dark:text-white hover:text-blue-500">Home</a>
+      <a href="about.html" class="block text-black dark:text-white hover:text-blue-500">About</a>
+      <a href="gallery.html" class="block text-black dark:text-white hover:text-blue-500">Gallery</a>
+      <a href="news.html" class="block text-black dark:text-white hover:text-blue-500">News</a>
+      <a href="promo.html" class="block text-black dark:text-white hover:text-blue-500">Promo</a>
+      <a href="contact.html" class="block text-black dark:text-white hover:text-blue-500">Contact</a>
+      <button id="themeToggleMobile" class="px-2 py-1 border rounded">🌙</button>
+    </div>
   </header>
 
-<section class="py-24 px-4 bg-gray-100 dark:bg-gray-800 min-h-screen pt-32">
-  <h2 class="text-4xl font-bold text-center mb-8">Ventroyn Network Discord</h2>
-  <p class="max-w-3xl mx-auto text-center text-lg mb-4">
-    Ventroyn Network adalah komunitas Discord aktif yang dibuat untuk semua pecinta teknologi, game, dan dunia digital. 
-    Di sini, kamu bisa berinteraksi dengan anggota lain, bertukar informasi, berdiskusi topik menarik, dan menemukan teman baru yang memiliki minat yang sama.
-  </p>
-  <p class="max-w-3xl mx-auto text-center text-lg mb-4">
-    Server Discord kami dirancang untuk menciptakan suasana yang ramah dan menyenangkan. 
-    Anggota dapat saling membantu, berbagi tips, atau sekadar ngobrol santai tentang berbagai hal seru. 
-    Tidak perlu khawatir soal pengalaman sebelumnya, semua orang diterima!
-  </p>
-  <p class="max-w-3xl mx-auto text-center text-lg">
-    Bergabunglah sekarang untuk tetap update dengan berita terbaru, informasi menarik, dan kesempatan untuk bertemu dengan komunitas yang aktif dan Tenang.
-  </p>
-  <div class="text-center mt-6">
-    <a href="https://discord.gg/7Pw7f3KsnU" target="_blank" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-      Join Discord
-    </a>
-  </div>
-</section>
+  <section class="py-24 px-4 bg-gray-100 dark:bg-gray-800 min-h-screen pt-32">
+    <h2 class="text-4xl font-bold text-center mb-8">Ventroyn Network Discord</h2>
+    <p class="max-w-3xl mx-auto text-center text-lg mb-4">
+      Ventroyn Network adalah komunitas Discord aktif yang dibuat untuk semua pecinta teknologi, game, dan dunia digital. 
+      Di sini, kamu bisa berinteraksi dengan anggota lain, bertukar informasi, berdiskusi topik menarik, dan menemukan teman baru yang memiliki minat yang sama.
+    </p>
+    <p class="max-w-3xl mx-auto text-center text-lg mb-4">
+      Server Discord kami dirancang untuk menciptakan suasana yang ramah dan menyenangkan. 
+      Anggota dapat saling membantu, berbagi tips, atau sekadar ngobrol santai tentang berbagai hal seru. 
+      Tidak perlu khawatir soal pengalaman sebelumnya, semua orang diterima!
+    </p>
+    <p class="max-w-3xl mx-auto text-center text-lg">
+      Bergabunglah sekarang untuk tetap update dengan berita terbaru, informasi menarik, dan kesempatan untuk bertemu dengan komunitas yang aktif dan tenang.
+    </p>
+    <div class="text-center mt-6">
+      <a href="https://discord.gg/7Pw7f3KsnU" target="_blank" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+        Join Discord
+      </a>
+    </div>
+  </section>
 
   <footer class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 py-6 text-center mt-10">
     <p>© 2025 Ventroyn Network</p>
   </footer>
 
   <script>
-    const themeToggle = document.getElementById('themeToggle');
-
+    
     if(localStorage.getItem('theme') === 'dark'){
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
 
+    const themeToggle = document.getElementById('themeToggle');
     themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      if(document.documentElement.classList.contains('dark')){
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    const themeToggleMobile = document.getElementById('themeToggleMobile');
+    themeToggleMobile.addEventListener('click', () => {
       document.documentElement.classList.toggle('dark');
       if(document.documentElement.classList.contains('dark')){
         localStorage.setItem('theme', 'dark');
